@@ -1,9 +1,7 @@
-{
-  "dependencies": {
-    "dotenv": "^16.3.1",
-    "mongoose": "^8.0.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",  // Update this line to match React's version
-    "react-google-login": "^5.2.2"
-  }
+"dependencies": {
+  "dotenv": "^16.3.1",
+  "mongoose": "^8.0.3",
+  "react": "^17.0.2",
+  "react-dom": "^17.0.2",
+  "react-google-login": "^5.2.2"
 }
