@@ -10,19 +10,19 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
-        <header className="App-header">
-          <h1>Welcome to Your App</h1>
-          <p>Join us and create an account!</p>
-          {/* If you have any Link components, make sure they are imported */}
-        </header>
-
-        <main>
+        <Header /> {/* Header at the top */}
+        
+        <main className="App-main"> {/* Main content */}
           <Switch>
+            <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignupPage} />
             {/* Add more routes for other pages as needed */}
           </Switch>
         </main>
+
+        <footer className="App-footer"> {/* Footer at the bottom */}
+          {/* Add footer content here */}
+        </footer>
       </div>
     </Router>
   );

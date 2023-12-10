@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom'; // Import useHistory from react-router-dom
-import { GoogleLogin } from 'react-google-login'; // Import GoogleLogin from react-google-login
+import { useHistory } from 'react-router-dom';
+import { GoogleLogin } from 'react-google-login';
 
 function SignupPage() {
-  const history = useHistory(); // Provides access to the navigation history
-
-  // Define form state and handle form submission
+  const history = useHistory();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -19,28 +17,24 @@ function SignupPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Implement form submission logic here
     try {
-      // Send registration data to the server
-      // Redirect the user to the next step upon successful registration
-      history.push('/profile-setup'); // Use history.push to navigate
+      // Implement your logic to send registration data to the server
+      history.push('/profile-setup');
     } catch (error) {
-      // Handle registration error
+      console.error('Signup failed:', error);
     }
   };
 
-  // Define a function to handle Google Sign-In success
   const handleGoogleSuccess = async (response) => {
     const { profileObj } = response;
     try {
-      // Handle the response from your backend
-      history.push('/profile-setup'); // Use history.push to navigate
+      // Implement your logic for Google Sign-In
+      history.push('/profile-setup');
     } catch (error) {
-      // Handle registration error
+      console.error('Google Sign-In failed:', error);
     }
   };
 
-  // Define a function to handle Google Sign-In failure
   const handleGoogleFailure = (error) => {
     console.error('Google Sign-In failed:', error);
   };
@@ -48,17 +42,57 @@ function SignupPage() {
   return (
     <div className="signup-page">
       <h2>Create an Account</h2>
-      <form onSubmit={handleSubmit}>
-        {/* Form fields and submit button */}
-      </form>
+      
+      {/* Google Sign In */}
+      <div className="google-signin">
+        <GoogleLogin
+          clientId="your-google-client-id"
+          buttonText="Sign up with Google"
+          onSuccess={handleGoogleSuccess}
+          onFailure={handleGoogleFailure}
+          cookiePolicy={'single_host_origin'}
+        />
+      </div>
 
-      <GoogleLogin
-        clientId="your-google-client-id"
-        buttonText="Sign up with Google"
-        onSuccess={handleGoogleSuccess}
-        onFailure={handleGoogleFailure}
-        cookiePolicy={'single_host_origin'}
-      />
+      <div className="manual-signup">
+        <h3>Or Sign Up Manually</h3>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
     </div>
   );
 }
