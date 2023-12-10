@@ -1,20 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const salesController = require('./controllers/salesController');
+const salesController = require('./controllers/salesController'); // Adjust the path as needed
 
-// POST request to create a new sale
 router.post('/', salesController.createSale);
-
-// GET request to retrieve all sales
-router.get('/', salesController.getSales);
-
-// GET request to retrieve a single sale by ID
-router.get('/:id', salesController.getSaleById);
-
-// PUT request to update an existing sale
-router.put('/:id', salesController.updateSale);
-
-// DELETE request to delete a sale
-router.delete('/:id', salesController.deleteSale);
+router.get('/', salesController.getAllSales); // You need to define this function in salesController
+router.get('/:id', salesController.getSaleById); // And this one
+router.put('/:id', salesController.updateSale); // And this one
+router.delete('/:id', salesController.deleteSale); // And this one
 
 module.exports = router;
