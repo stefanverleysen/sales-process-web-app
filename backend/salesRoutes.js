@@ -5,7 +5,7 @@ const salesController = require('./controllers/salesController'); // Adjust the 
 router.post('/', salesController.createSale);
 router.get('/', salesController.getAllSales); // You need to define this function in salesController
 router.get('/:id', salesController.getSaleById); // And this one
-router.put('/:id', salesController.updateSale); // And this one
-router.delete('/:id', salesController.deleteSale); // And this one
+router.put('/:id', salesController.updateSaleById); // And this one
+router.delete('/:id', salesController.deleteSaleById); // And this one
 
 module.exports = router;
