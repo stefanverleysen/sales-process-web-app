@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const salesRoutes = require('./salesRoutes'); // Adjust the path as necessary
+const salesController = require('./controllers/salesController'); // Ensure this path is correct
 
 // Middleware for parsing JSON and urlencoded data
 app.use(express.json());
