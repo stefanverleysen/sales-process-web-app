@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const salesController = require('./controllers/salesController'); // Adjust the path as needed
+const salesController = require('../controllers/salesController'); // Adjust the path as needed
 
 router.post('/', salesController.createSale);
 router.get('/', salesController.getAllSales); // You need to define this function in salesController

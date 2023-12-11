@@ -6,7 +6,7 @@ exports.createSale = async (req, res) => {
     const newSale = new Sale({
       title: req.body.title,
       description: req.body.description,
-      createdBy: req.body.createdBy, // This should be the user's ID
+      createdBy: req.body.createdBy, // ThAis should be the user's ID
       // Populate other fields from req.body
     });
 
