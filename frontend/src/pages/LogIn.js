@@ -23,11 +23,14 @@ function LoginPage() {
       if (response.status === 200) {
         // Login successful, handle the response accordingly
         // Redirect to the user's profile page or perform other actions
+        window.location.href = '/profile'; // Replace with your profile page URL
       } else {
         // Login failed, handle errors and display an error message
+        console.error('Login failed');
       }
     } catch (error) {
       // Handle network errors or other exceptions
+      console.error('Error during login:', error);
     }
   };
 
