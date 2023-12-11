@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
+import axios from 'axios'; // Import Axios
 
 function SignupPage() {
   const history = useHistory();
@@ -18,8 +19,13 @@ function SignupPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Implement your logic to send registration data to the server
-      history.push('/profile-setup');
+      // Implement logic for manual sign-up
+      const response = await axios.post('/api/signup', formData); // Adjust the endpoint URL
+      if (response.status === 201) {
+        history.push('/profile-setup');
+      } else {
+        console.error('Signup failed:', response.data.message);
+      }
     } catch (error) {
       console.error('Signup failed:', error);
     }
@@ -28,8 +34,13 @@ function SignupPage() {
   const handleGoogleSuccess = async (response) => {
     const { profileObj } = response;
     try {
-      // Implement your logic for Google Sign-In
-      history.push('/profile-setup');
+      // Implement logic for Google Sign-In
+      const response = await axios.post('/api/google-signin', profileObj); // Adjust the endpoint URL
+      if (response.status === 200) {
+        history.push('/profile-setup');
+      } else {
+        console.error('Google Sign-In failed:', response.data.message);
+      }
     } catch (error) {
       console.error('Google Sign-In failed:', error);
     }
