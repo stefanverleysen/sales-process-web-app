@@ -5,7 +5,7 @@ import SignupPage from './components/SignupPage';
 import Header from './components/Header';
 import Login from './components/Login';
 import Home from './components/Home';
-import TestPage from './components/TestPage';
+import ProfileSetup from './components/ProfileSetup'
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/" component={Home} />
+            <Route exact path="/profilesetup" component={ProfileSetup} />
             {/* Add more routes for other pages as needed */}
           </Switch>
         </main>

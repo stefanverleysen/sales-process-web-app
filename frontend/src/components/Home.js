@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../App.css'; // This steps out of the components folder into src
+
 
 function Home() {
   return (
@@ -30,7 +32,7 @@ function Home() {
       <nav className="home-nav">
         <ul>
           <li><Link to="/signup">Sign Up</Link></li> {/* Link to SignupPage */}
-          <li><Link to="/test">Test Page</Link></li> {/* Link to TestPage */}
+          <li><Link to="/profilesetup">Profile Setup</Link></li> {/* Link to Profile Setup */}
           <li><Link to="/login">Login</Link></li>    {/* Link to Login */}
           {/* Add more links as needed */}
         </ul>

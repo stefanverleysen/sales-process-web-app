@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../App.css'; // This steps out of the components folder into src
 
 function LoginPage() {
   const [email, setEmail] = useState('');
