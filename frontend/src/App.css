@@ -81,7 +81,7 @@ a:hover {
   align-items: center;
   justify-content: stretch;
   font-size: calc(10px + 2vmin);
-  background-color: #ff0000; /* Add a background color */
+  background-color: #a7a7a7; /* Add a background color */
   /* Other styles like font, background, etc. */
 }
 
