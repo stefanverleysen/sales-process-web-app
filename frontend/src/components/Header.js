@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
+import bannerImage from './SALES-MAPPER_banner.png'; // Import the banner image
 
 function Header() {
   return (
     <header>
+      <Link to="/">
+        <div className="banner">
+          <img src={bannerImage} alt="Sales Mapper Banner" />
+        </div>
+      </Link>
       <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>        {/* Use Link component */}
-          <li><Link to="/signup">Sign Up</Link></li> {/* Use Link component */}
-          <li><Link to="/login">Login</Link></li>    {/* Use Link component */}
-          {/* Add more navigation links as needed */}
-        </ul>
+        {/* Navigation items, if any */}
       </nav>
     </header>
   );
