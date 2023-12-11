@@ -129,8 +129,8 @@ button:hover {
   align-items: center;
   justify-content: stretch;
   background-color: #a7a7a7;
-  width: 100%;
-  min-height: 100%;
+  width: 100vh;
+  height: 100vh;
 }
 
 .signup-page, .form-group {
